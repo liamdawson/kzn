@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+KZN_DIR="${KZN_DIR:-"${HOME}/.kzn"}"
+KZN_SCRIPT="${KZN_DIR}/bin.rb"
+
+test -f "$KZN_SCRIPT" || { echo "could not find ${KZN_SCRIPT}: is \$KZN_DIR set correctly?"; exit 2; }
+
+if test -z "${HOMEBREW_PREFIX:-}"
+then
+  test ! -x "/home/linuxbrew/.linuxbrew/bin/brew" || export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+  test ! -x "/${HOME}/.linuxbrew/bin/brew" || export HOMEBREW_PREFIX="${HOME}/.linuxbrew"
+  test ! -x "/usr/local/bin/brew" || export HOMEBREW_PREFIX="/usr/local"
+fi
+
+command -v brew >/dev/null || export PATH="${HOMEBREW_PREFIX}/bin:${PATH}"
+command -v ruby >/dev/null || export PATH="${PATH}:$(dirname "$(brew config | grep 'Ruby' | awk '{ print $5; }')")"
+
+exec ruby "$KZN_SCRIPT" "$@"
+
