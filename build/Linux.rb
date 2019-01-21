@@ -12,6 +12,7 @@ def packages
     libgconf-2-4
     scdaemon
     git
+    zlib1g-dev
   ]
 end
 
