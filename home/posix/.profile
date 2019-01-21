@@ -1,6 +1,7 @@
 #shellcheck shell=sh
 
 test ! -f "/etc/profile" || . /etc/profile
+test ! -f "${HOME}/.profile.local" || . "${HOME}/.profile.local"
 
 if test -d "${HOME}/.profile.d"
 then
