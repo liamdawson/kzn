@@ -13,6 +13,16 @@ def packages
     scdaemon
     git
     zlib1g-dev
+    apt-transport-https
+    software-properties-common
+    gnupg2
+    ca-certificates
+  ]
+end
+
+def post_add_repo_packages
+  %w[
+    docker-ce
   ]
 end
 
@@ -22,7 +32,7 @@ def commands
     sys("sudo apt upgrade -y"),
     sys("sudo apt install -y #{packages.join(" ")}"),
     -> () do
-      if command_exists('code')
+      if command_exists('code') || File.exist?('/etc/apt/sources.list.d/vscode.list')
         true
       else
         [
@@ -31,6 +41,13 @@ def commands
         ].all? { |cmd| cmd.call }
       end
     end,
+    -> () do
+      [
+        sys("bash -c 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -'"),
+        sys("sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu #{`lsb_release -cs`} stable'"),
+      ].all? { |cmd| cmd.call }
+    end,
+    sys("sudo apt install -y #{post_add_repo_packages.join(" ")}"),
   ]
 end
 
