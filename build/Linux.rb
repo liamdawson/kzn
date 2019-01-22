@@ -42,10 +42,14 @@ def commands
       end
     end,
     -> () do
-      [
-        sys("bash -c 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -'"),
-        sys("sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu #{`lsb_release -cs`} stable'"),
-      ].all? { |cmd| cmd.call }
+      if File.read('/etc/apt/sources.list').include?('https://download.docker.com/linux/ubuntu')
+        true
+      else
+        [
+          sys("bash -c 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -'"),
+          sys("sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu #{`lsb_release -cs`} stable'"),
+        ].all? { |cmd| cmd.call }
+      end
     end,
     sys("sudo apt install -y #{post_add_repo_packages.join(" ")}"),
   ]
