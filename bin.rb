@@ -26,8 +26,9 @@ when 'home'
     abort($?) unless system(cmd)
   end
 when 'brew'
-  files = platforms[uname].map {|platform| "--file=" + File.join(__dir__, 'brewfiles', "#{platform}.Brewfile")}.join(' ')
-  cmd = "brew bundle install #{files}"
-  puts(cmd)
-  abort($?) unless system(cmd)
+  platforms[uname].each do |platform|
+    cmd = "brew bundle install --file='#{File.join(__dir__, 'brewfiles', "#{platform}.Brewfile")}'"
+    puts(cmd)
+    abort($?) unless system(cmd)
+  end
 end
