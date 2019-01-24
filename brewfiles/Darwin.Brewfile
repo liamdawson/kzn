@@ -1,2 +1,5 @@
 tap 'homebrew/cask-fonts'
 cask 'firefox'
+cask 'font-noto-mono'
+cask 'font-fira-mono'
+cask 'font-roboto-mono'
