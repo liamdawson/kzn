@@ -1,5 +1,8 @@
 tap 'homebrew/cask-fonts'
+cask 'alacritty'
 cask 'firefox'
+cask 'visual-studio-code'
+cask 'aws-vault'
 cask 'font-noto-mono'
 cask 'font-fira-mono'
 cask 'font-roboto-mono'
