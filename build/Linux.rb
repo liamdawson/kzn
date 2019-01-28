@@ -17,6 +17,7 @@ def packages
     software-properties-common
     gnupg2
     ca-certificates
+    openjdk-11-jdk
   ]
 end
 

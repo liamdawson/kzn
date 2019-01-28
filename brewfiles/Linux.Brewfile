@@ -1,4 +1,3 @@
-tap linuxbrew/fonts
-brew 'font-noto-mono'
-brew 'font-fira-mono'
-brew 'font-roboto-mono'
+brew 'linuxbrew/fonts/font-noto-mono', args: ["HEAD"]
+brew 'linuxbrew/fonts/font-fira-mono'
+brew 'linuxbrew/fonts/font-roboto-mono', args: ["HEAD"]
