@@ -18,6 +18,7 @@ def packages
     gnupg2
     ca-certificates
     openjdk-11-jdk
+    xclip
   ]
 end
 
