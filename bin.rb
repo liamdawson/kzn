@@ -9,7 +9,7 @@ platforms = {
   Linux: %w[ all posix Linux ],
 }
 
-input_command = ARGV[0].downcase
+input_command = (ARGV[0] || '').downcase
 
 abort "#{uname} is not a supported platform." unless platforms.keys.include? uname
 abort "expected one of the following as a subcommand: #{commands.join(", ")}" unless commands.include? input_command
