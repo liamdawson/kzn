@@ -1,0 +1,4 @@
+zstyle ':vcs_info:*' enable NONE
+
+[[ -r "${ZDOTDIR:-${HOME}}/.zshrc.machine" ]] && source "${ZDOTDIR:-${HOME}}/.zshrc.machine"
+[[ -r "${HOME}/.profile" ]] && source "${HOME}/.profile"
