@@ -1,3 +1,5 @@
+tap 'linuxbrew/fonts'
+
 brew 'linuxbrew/fonts/font-noto-sans', args: ["HEAD"]
 brew 'linuxbrew/fonts/font-noto-serif', args: ["HEAD"]
 brew 'linuxbrew/fonts/font-noto-mono', args: ["HEAD"]
