@@ -2,58 +2,35 @@
 
 # frozen_string_literal: true
 
-# note: assuming apt-based system
+# note: assuming Fedora
+
+def vscode
+  repo = "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc"
+
+  sys("sudo sh -c 'echo -e \"#{repo}\" > /etc/yum.repos.d/vscode.repo'")
+end
 
 def packages
   %w[
-    gnome-session
-    build-essential
-    curl
-    libgconf-2-4
-    scdaemon
-    git
-    zlib1g-dev
-    apt-transport-https
-    software-properties-common
-    gnupg2
-    ca-certificates
-    openjdk-11-jdk
     xclip
+    gnupg2
+    java-11-openjdk
+    code
+    pinentry-gnome3
   ]
 end
 
-def post_add_repo_packages
-  %w[
-    docker-ce
+def software_groups
+  [
+    "'Development Tools'"
   ]
 end
 
 def commands
   [
-    sys("sudo apt update -y"),
-    sys("sudo apt upgrade -y"),
-    sys("sudo apt install -y #{packages.join(" ")}"),
-    -> () do
-      if command_exists('code') || File.exist?('/etc/apt/sources.list.d/vscode.list')
-        true
-      else
-        [
-          sys("curl -sSLo /tmp/code.deb https://go.microsoft.com/fwlink/?LinkID=760868"),
-          sys("sudo dpkg -i /tmp/code.deb"),
-        ].all? { |cmd| cmd.call }
-      end
-    end,
-    -> () do
-      if File.read('/etc/apt/sources.list').include?('https://download.docker.com/linux/ubuntu')
-        true
-      else
-        [
-          sys("bash -c 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -'"),
-          sys("sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu #{`lsb_release -cs`} stable'"),
-        ].all? { |cmd| cmd.call }
-      end
-    end,
-    sys("sudo apt install -y #{post_add_repo_packages.join(" ")}"),
+    sys("sudo dnf upgrade -y"),
+    sys("sudo yum groupinstall -y #{software_groups.join(" ")}"),
+    sys("sudo dnf install -y #{packages.join(" ")}"),
   ]
 end
 
@@ -74,3 +51,4 @@ def sys(cmd, toggle = true)
 end
 
 abort("failed to run all commands") unless commands.all? { |cmd| cmd.call }
+
