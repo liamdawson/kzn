@@ -17,6 +17,17 @@ def packages
     java-11-openjdk
     code
     pinentry-gnome3
+    bzip2
+    bzip2-devel
+    openssl-devel
+    libyaml-devel
+    libffi-devel
+    readline-devel
+    zlib-devel
+    gdbm-devel
+    ncurses-devel
+    sqlite-devel
+    kitty
   ]
 end
 
@@ -28,10 +39,15 @@ end
 
 def commands
   [
+    *coprs.map {|copr| sys("sudo dnf copr enable #{copr}")},
     sys("sudo dnf upgrade -y"),
     sys("sudo yum groupinstall -y #{software_groups.join(" ")}"),
     sys("sudo dnf install -y #{packages.join(" ")}"),
   ]
+end
+
+def coprs
+  %w[ oleastre/kitty-terminal ]
 end
 
 def command_exists(cmd)
