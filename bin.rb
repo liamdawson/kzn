@@ -3,7 +3,7 @@
 # frozen_string_literal: true
 
 @uname = `uname -s`.chomp.to_sym
-commands = %w[ build brew config home cycle ]
+commands = %w[ build brew config home cycle update ]
 @platforms = {
   Darwin: %w[ all posix Darwin ],
   Linux: %w[ all posix Linux ],
@@ -57,5 +57,9 @@ when 'cycle'
   brew
   home
   config
+when 'update'
+  cmd = "cd \"#{__dir__}\"; git pull"
+
+  abort('failed') unless system("sh -c '#{cmd}'")
 end
 
