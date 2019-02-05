@@ -1,5 +1,5 @@
 installs = [
-  -> () { system("rbenv install -s 2.6.0") },
+  -> () { system("rbenv install -s 2.6.1") },
   -> () { system("pyenv install -s 3.7.2") },
   -> () { system("pyenv install -s 2.7.15") },
   -> () { system("nodenv install -s 10.15.0") },
@@ -9,7 +9,7 @@ installs = [
 ]
 
 if installs.all? {|b| b.call}
-  system("rbenv global 2.6.0")
+  system("rbenv global 2.6.1")
   system("pyenv global 3.7.2")
   system("nodenv global 10.15.0")
   system("goenv global 1.11.4")

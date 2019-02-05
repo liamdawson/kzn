@@ -5,6 +5,8 @@ cask 'font-noto-mono'
 cask 'font-fira-mono'
 cask 'font-roboto-mono'
 
+cask 'quicklook-json'
+
 cask 'kitty'
 cask 'firefox'
 cask 'visual-studio-code'
