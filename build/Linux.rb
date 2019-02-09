@@ -39,7 +39,7 @@ end
 
 def commands
   [
-    *coprs.map {|copr| sys("sudo dnf copr enable #{copr}")},
+    *coprs.map {|copr| sys("sudo dnf copr enable -y #{copr}")},
     sys("sudo dnf upgrade -y"),
     sys("sudo yum groupinstall -y #{software_groups.join(" ")}"),
     sys("sudo dnf install -y #{packages.join(" ")}"),
