@@ -28,6 +28,9 @@ def packages
     ncurses-devel
     sqlite-devel
     kitty
+    docker-ce
+    docker-ce-cli
+    containerd.io
   ]
 end
 
@@ -39,8 +42,10 @@ end
 
 def commands
   [
-    *coprs.map {|copr| sys("sudo dnf copr enable -y #{copr}")},
     sys("sudo dnf upgrade -y"),
+    sys("sudo dnf install -y dnf-plugins-core"),
+    *coprs.map {|copr| sys("sudo dnf copr enable -y #{copr}")},
+    *repos.map {|repo| sys("sudo dnf config-manager --add-repo #{repo}")},
     sys("sudo yum groupinstall -y #{software_groups.join(" ")}"),
     sys("sudo dnf install -y #{packages.join(" ")}"),
   ]
@@ -48,6 +53,12 @@ end
 
 def coprs
   %w[ oleastre/kitty-terminal ]
+end
+
+def repos
+  %w[
+    https://download.docker.com/linux/fedora/docker-ce.repo
+  ]
 end
 
 def command_exists(cmd)
