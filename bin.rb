@@ -66,5 +66,5 @@ when 'shell'
     system(ENV['SHELL'])
   end
 when 'code'
-  system("#{ENV['VISUAL'] || 'code'} __dir__")
+  system(ENV['VISUAL'] || 'code', __dir__)
 end
