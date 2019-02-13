@@ -31,6 +31,7 @@ def packages
     docker-ce
     docker-ce-cli
     containerd.io
+    telegram-desktop
   ]
 end
 
@@ -44,11 +45,12 @@ def commands
   [
     sys("sudo dnf upgrade -y"),
     sys("sudo dnf install -y dnf-plugins-core"),
+    sys("dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-#{`rpm -E %fedora`}.noarch.rpm", !File.exist?("/etc/yum.repos.d/rpmfusion-free.repo")),
     *coprs.map {|copr| sys("sudo dnf copr enable -y #{copr}")},
     *repos.map {|repo| sys("sudo dnf config-manager --add-repo #{repo}")},
     sys("sudo yum groupinstall -y #{software_groups.join(" ")}"),
     sys("sudo dnf install -y #{packages.join(" ")}"),
-  ]
+  ].compact
 end
 
 def coprs
