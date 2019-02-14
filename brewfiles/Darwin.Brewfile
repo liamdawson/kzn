@@ -16,3 +16,5 @@ cask 'vagrant-manager'
 cask 'aws-vault'
 cask 'minikube'
 cask 'vagrant'
+
+mas 'Microsoft OneNote', id: 784801555
