@@ -4,7 +4,7 @@ name = "Liam Dawson"
 [core]
 pager = "less -FRX"
 excludesfile = ~/.gitignore
-	editor = c--git-editor
+editor = vim
 
 [color]
 ui = auto
@@ -18,3 +18,9 @@ autoupdate = true
 
 [commit]
 verbose = true
+
+[merge]
+ff = only
+
+[pull]
+ff = only
