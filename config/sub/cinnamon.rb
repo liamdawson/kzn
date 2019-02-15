@@ -5,9 +5,8 @@ config = lambda do |_|
     end
 
     namespace 'sounds' do
-      %w[login-enabled logout-enabled unplug-enabled tile-enabled plug-enabled switch-enabled].each do |name|
-        set name, false
-      end
+      %w[login logout unplug tile plug switch maximize unmaximize minimize close
+         map].each { |name| set "#{name}-enabled", false }
     end
 
     namespace 'settings-daemon' do
