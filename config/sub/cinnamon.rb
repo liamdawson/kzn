@@ -13,7 +13,7 @@ config = lambda do |_|
       namespace 'peripherals/touchpad' do
         set 'natural-scroll', false
         set 'scroll-method', "'two-finger-scrolling'"
-        set 'horiz-scroll-enabled', true
+        set 'horizontal-scrolling', true
       end
 
       set 'plugins/power/button-power', "'interactive'"
