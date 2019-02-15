@@ -32,6 +32,7 @@ def packages
     docker-ce-cli
     containerd.io
     telegram-desktop
+    chromium
   ]
 end
 
