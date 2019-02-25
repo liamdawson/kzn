@@ -7,6 +7,7 @@ brew 'hub'
 brew 'kubectl'
 brew 'kubernetes-helm'
 brew 'helmfile'
+brew 'convox'
 brew 'wget'
 brew 'rbenv'
 
