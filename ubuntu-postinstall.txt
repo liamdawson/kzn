@@ -1,4 +1,0 @@
-sudo apt update
-sudo ubuntu-drivers autoinstall
-sudo apt install -y gnome-session build-essential curl
-
