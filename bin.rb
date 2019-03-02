@@ -58,7 +58,7 @@ when 'cycle'
   home
   config
 when 'update'
-  cmd = "cd \"#{__dir__}\"; git pull"
+  cmd = "cd \"#{__dir__}\"; git pull https://github.com/liamdawson/kzn master"
 
   abort('failed') unless system("sh -c '#{cmd}'")
 when 'shell'
