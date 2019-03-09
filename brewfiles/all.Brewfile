@@ -19,5 +19,11 @@ brew 'nodenv/nodenv/nodenv-default-packages'
 brew 'pyenv'
 brew 'goenv'
 brew 'adr-tools'
+
+brew 'httpie'
+brew 'jq'
+brew 'ripgrep'
+brew 'xsv'
+
 brew 'graphviz'
 brew 'ykman'
