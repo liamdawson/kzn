@@ -1,26 +1,29 @@
 [user]
-name = "Liam Dawson"
+	name = "Liam Dawson"
 
 [core]
-pager = "less -FRX"
-excludesfile = ~/.gitignore
-editor = vim
+	pager = "less -FRX"
+	excludesfile = ~/.gitignore
+	editor = vim
 
 [color]
-ui = auto
+	ui = auto
 
 [push]
-default = current
+	default = current
 
 [rerere]
-enabled = true
-autoupdate = true
+	enabled = true
+	autoupdate = true
 
 [commit]
-verbose = true
+	verbose = true
 
 [merge]
-ff = only
+	ff = only
 
 [pull]
-ff = only
+	ff = only
+
+[alias]
+	hard-master = "reset --hard origin/master"
