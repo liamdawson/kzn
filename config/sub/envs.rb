@@ -11,7 +11,7 @@ installs = [
 if installs.all?(&:call)
   system('rbenv global 2.6.2')
   system('pyenv global 3.7.2')
-  system('nodenv global 10.15.0')
+  system('nodenv global 10.15.3')
   system('goenv global 1.11.4')
   system('rustup default stable')
 

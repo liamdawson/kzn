@@ -14,11 +14,13 @@ brew 'rbenv'
 brew 'rbenv-default-gems'
 
 tap 'nodenv/nodenv'
-
 brew 'nodenv'
 brew 'nodenv/nodenv/nodenv-default-packages'
 
 brew 'pyenv'
+tap 'jawshooah/pyenv'
+brew 'jawshooah/pyenv/pyenv-default-packages'
+
 brew 'goenv'
 brew 'adr-tools'
 
