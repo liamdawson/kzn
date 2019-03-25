@@ -1,0 +1,8 @@
+tmux
+====
+
+* prefix: ctrl-b
+
+* rename a window:
+  prefix + ,
+

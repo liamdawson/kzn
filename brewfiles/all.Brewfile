@@ -9,7 +9,9 @@ brew 'kubernetes-helm'
 brew 'helmfile'
 brew 'convox'
 brew 'wget'
+
 brew 'rbenv'
+brew 'rbenv-default-gems'
 
 tap 'nodenv/nodenv'
 
