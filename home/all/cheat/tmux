@@ -1,8 +1,7 @@
 tmux
 ====
 
-* prefix: ctrl-b
-
-* rename a window:
-  prefix + ,
-
+* prefix (`[p]`)  
+  `ctrl-b`
+* rename a window  
+  `[p] ,`
