@@ -27,3 +27,4 @@
 
 [alias]
 	hard-master = "reset --hard origin/master"
+	squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1?Please enter a commit message}\");};f"
