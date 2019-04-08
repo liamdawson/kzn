@@ -1,0 +1,14 @@
+[[snippets]]
+  description = "Generate a new NIST P-256 ECC private key."
+  command = "openssl ecparam -genkey -name prime256v1 -noout -out <key name>"
+  output = ""
+
+[[snippets]]
+  description = "Generate a public key from an ECC private key."
+  command = "openssl ec -in <private key> -pubout -out <public key>"
+  output = ""
+
+[[snippets]]
+  description = "Escape newlines in a file (to stdout)."
+  command = "perl -0777 -pe 's/\\n/\\\\n/g' <file>"
+  output = ""
