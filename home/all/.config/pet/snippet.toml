@@ -12,3 +12,8 @@
   description = "Escape newlines in a file (to stdout)."
   command = "perl -0777 -pe 's/\\n/\\\\n/g' <file>"
   output = ""
+
+[[snippets]]
+  description = "Get script directory in bash"
+  command = "DIR=\"$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )\" >/dev/null 2>&1 && pwd )\""
+  output = ""
