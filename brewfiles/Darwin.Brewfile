@@ -18,3 +18,6 @@ cask 'minikube'
 cask 'vagrant'
 
 mas 'Microsoft OneNote', id: 784801555
+
+brew 'readline'
+brew 'xz'
