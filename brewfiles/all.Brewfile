@@ -31,3 +31,5 @@ brew 'xsv'
 
 brew 'graphviz'
 brew 'ykman'
+
+brew 'fzf'
