@@ -29,6 +29,7 @@ brew 'jq'
 brew 'ripgrep'
 brew 'xsv'
 
+brew 'shellcheck'
 brew 'graphviz'
 brew 'ykman'
 
