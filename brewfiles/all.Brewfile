@@ -31,6 +31,5 @@ brew 'xsv'
 
 brew 'shellcheck'
 brew 'graphviz'
-brew 'ykman'
 
 brew 'fzf'

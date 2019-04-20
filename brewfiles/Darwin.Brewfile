@@ -7,6 +7,8 @@ cask 'font-roboto-mono'
 
 cask 'quicklook-json'
 
+brew 'ykman'
+
 cask 'kitty'
 cask 'firefox'
 cask 'visual-studio-code'
