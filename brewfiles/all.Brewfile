@@ -20,6 +20,7 @@ brew 'nodenv/nodenv/nodenv-default-packages'
 brew 'pyenv'
 tap 'jawshooah/pyenv'
 brew 'jawshooah/pyenv/pyenv-default-packages'
+brew 'jawshooah/pyenv/pyenv-implict'
 
 brew 'goenv'
 brew 'adr-tools'

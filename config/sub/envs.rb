@@ -15,6 +15,9 @@ if installs.all?(&:call)
   system('goenv global 1.11.4')
   system('rustup default stable')
 
+  system('bash -c "git clone git://github.com/concordusapps/pyenv-implict.git $(pyenv root)/plugins/pyenv-implict"')
+  system('bash -c "git clone https://github.com/jawshooah/pyenv-default-packages.git $(pyenv root)/plugins/pyenv-default-packages"')
+
   require_relative './rust_packages'
 else
   puts 'some installs failed, not setting globals'
