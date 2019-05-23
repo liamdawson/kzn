@@ -30,9 +30,10 @@ if installs.all?(&:call)
 
     plugins[plugin_dir].each do |name, remote|
       dest = File.join(plugin_dir, name)
-      next if Dir.exist?(dest)
 
-      system("bash -c 'git clone \"#{remote}\" \"#{dest}\"'")
+      unless Dir.exist?(dest)
+        system("bash -c 'git clone \"#{remote}\" \"#{dest}\"'")
+      end
     end
   end
 
