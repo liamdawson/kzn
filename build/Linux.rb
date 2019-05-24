@@ -47,7 +47,7 @@ def commands
   [
     sys("sudo dnf upgrade -y"),
     sys("sudo dnf install -y dnf-plugins-core"),
-    sys("sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-#{`rpm -E %fedora`}.noarch.rpm", !File.exist?("/etc/yum.repos.d/rpmfusion-free.repo")),
+    sys("sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-#{`rpm -E %fedora`.chomp}.noarch.rpm", !File.exist?("/etc/yum.repos.d/rpmfusion-free.repo")),
     *coprs.map {|copr| sys("sudo dnf copr enable -y #{copr}")},
     *repos.map {|repo| sys("sudo dnf config-manager --add-repo #{repo}")},
     sys("sudo yum groupinstall -y #{software_groups.join(" ")}"),
