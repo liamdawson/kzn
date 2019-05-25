@@ -43,6 +43,13 @@ def brew
   end
 end
 
+def cycle
+  build
+  brew
+  home
+  config
+end
+
 case input_command
 when 'build'
   build
@@ -53,14 +60,13 @@ when 'home'
 when 'brew'
   brew
 when 'cycle'
-  build
-  brew
-  home
-  config
+  cycle
 when 'update'
   cmd = "cd \"#{__dir__}\"; git pull https://github.com/liamdawson/kzn master"
 
   abort('failed') unless system("sh -c '#{cmd}'")
+
+  (abort('failed') unless system("sh -c '#{__dir__}/kzn cycle'")) if ARGV[1] == 'now'
 when 'push'
   cmd = "cd \"#{__dir__}\"; git push origin -u HEAD"
 
