@@ -9,6 +9,7 @@ def packages
     @development-tools
     @pantheon-desktop
     @vagrant
+    zsh
     xclip
     gnupg2
     java-11-openjdk
