@@ -1,21 +1,14 @@
-#/usr/bin/env ruby
+#!/usr/bin/env ruby
 
 # frozen_string_literal: true
 
 # note: assuming Fedora
-
-def vscode
-  repo = "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc"
-
-  sys("sudo sh -c 'echo -e \"#{repo}\" > /etc/yum.repos.d/vscode.repo'")
-end
 
 def packages
   %w[
     xclip
     gnupg2
     java-11-openjdk
-    code
     pinentry-gnome3
     bzip2
     bzip2-devel
@@ -33,6 +26,13 @@ def packages
     containerd.io
     telegram-desktop
     chromium
+    snapd
+  ]
+end
+
+def snaps
+  [
+    '--classic code'
   ]
 end
 
@@ -52,11 +52,13 @@ def commands
     *repos.map {|repo| sys("sudo dnf config-manager --add-repo #{repo}")},
     sys("sudo yum groupinstall -y #{software_groups.join(" ")}"),
     sys("sudo dnf install -y #{packages.join(" ")}"),
+    sys('sudo ln -s /var/lib/snapd/snap /snap'),
+    *snaps.map { |snap| sys("sudo snap install #{snap}") }
   ].compact
 end
 
 def coprs
-  %w[ oleastre/kitty-terminal ]
+  %w[oleastre/kitty-terminal]
 end
 
 def repos
