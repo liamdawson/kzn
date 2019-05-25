@@ -40,7 +40,7 @@ end
 def software_groups
   [
     "'Development Tools'",
-    "'Deepin Desktop'"
+    "'Pantheon Desktop'"
   ]
 end
 
