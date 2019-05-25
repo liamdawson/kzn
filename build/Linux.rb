@@ -42,6 +42,7 @@ def packages
     zlib-devel
     VirtualBox
     VirtualBox-devel
+    openssl-compat10
   ]
 end
 
