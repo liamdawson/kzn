@@ -8,6 +8,7 @@ def packages
   %w[
     @development-tools
     @pantheon-desktop
+    @vagrant
     xclip
     gnupg2
     java-11-openjdk
