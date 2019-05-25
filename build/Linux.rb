@@ -52,7 +52,7 @@ def commands
   [
     sys("sudo dnf upgrade -y"),
     sys("sudo dnf install -y dnf-plugins-core"),
-    *repo_packages.map { |key, val| sys("sudo dnf install -y #{val}", !File.exist?(key)) },
+    *repo_packages.map { |check, pkg| sys("sudo dnf install -y #{pkg}", !File.exist?(check)) },
     *coprs.map {|copr| sys("sudo dnf copr enable -y #{copr}")},
     *repos.map {|repo| sys("sudo dnf config-manager --add-repo #{repo}")},
     sys("sudo dnf install -y #{packages.join(" ")}"),
