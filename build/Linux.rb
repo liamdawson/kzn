@@ -9,6 +9,7 @@ def packages
     @development-tools
     @pantheon-desktop
     @vagrant
+    hostname
     util-linux-user
     zsh
     xclip
