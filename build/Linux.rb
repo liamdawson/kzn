@@ -46,13 +46,6 @@ def snaps
   ]
 end
 
-def software_groups
-  [
-    "'Development Tools'",
-    "'Pantheon Desktop'"
-  ]
-end
-
 def commands
   [
     sys("sudo dnf upgrade -y"),
@@ -60,7 +53,6 @@ def commands
     *repo_packages.map { |key, val| sys("sudo dnf install -y #{val}", !File.exist?(key)) },
     *coprs.map {|copr| sys("sudo dnf copr enable -y #{copr}")},
     *repos.map {|repo| sys("sudo dnf config-manager --add-repo #{repo}")},
-    sys("sudo dnf groupinstall -y #{software_groups.join(" ")}"),
     sys("sudo dnf install -y #{packages.join(" ")}"),
     *remote_packages.map { |check, pkg| sys("sudo dnf install -y #{pkg}", !File.exist?(check)) },
     sys('[[ -d /snap ]] || sudo ln -s /var/lib/snapd/snap /snap'),
