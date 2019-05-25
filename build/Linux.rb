@@ -6,6 +6,8 @@
 
 def packages
   %w[
+    @development-tools
+    @pantheon-desktop
     xclip
     gnupg2
     java-11-openjdk
@@ -27,6 +29,12 @@ def packages
     telegram-desktop
     chromium
     snapd
+    kernel-devel
+    kernel-headers
+    dkms
+    qt5-qtx11extras
+    elfutils-libelf-devel
+    zlib-devel
   ]
 end
 
@@ -65,6 +73,7 @@ end
 
 def repos
   %w[
+    http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
     https://download.docker.com/linux/fedora/docker-ce.repo
   ]
 end
