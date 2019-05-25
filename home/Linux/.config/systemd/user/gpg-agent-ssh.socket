@@ -8,7 +8,6 @@ FileDescriptorName=ssh
 Service=gpg-agent.service
 SocketMode=0600
 DirectoryMode=0700
-ExecStartPost=/usr/bin/systemctl --user set-environment SSH_AUTH_SOCK=%t/gnupg/S.gpg-agent.ssh
 
 [Install]
 WantedBy=sockets.target
