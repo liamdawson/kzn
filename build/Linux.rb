@@ -36,6 +36,8 @@ def packages
     qt5-qtx11extras
     elfutils-libelf-devel
     zlib-devel
+    VirtualBox
+    VirtualBox-devel
   ]
 end
 
