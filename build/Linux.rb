@@ -32,7 +32,8 @@ end
 
 def snaps
   [
-    '--classic code'
+    '--classic code',
+    'snap-store'
   ]
 end
 
