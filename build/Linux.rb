@@ -53,7 +53,7 @@ def commands
     *repos.map {|repo| sys("sudo dnf config-manager --add-repo #{repo}")},
     sys("sudo yum groupinstall -y #{software_groups.join(" ")}"),
     sys("sudo dnf install -y #{packages.join(" ")}"),
-    sys('sudo ln -s /var/lib/snapd/snap /snap'),
+    sys('[[ -d /snap ]] || sudo ln -s /var/lib/snapd/snap /snap'),
     *snaps.map { |snap| sys("sudo snap install #{snap}") }
   ].compact
 end
