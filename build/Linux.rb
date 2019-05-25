@@ -51,7 +51,7 @@ def commands
     *repo_packages.map { |key, val| sys("sudo dnf install -y #{val}", !File.exist?(key)) },
     *coprs.map {|copr| sys("sudo dnf copr enable -y #{copr}")},
     *repos.map {|repo| sys("sudo dnf config-manager --add-repo #{repo}")},
-    sys("sudo yum groupinstall -y #{software_groups.join(" ")}"),
+    sys("sudo dnf groupinstall -y #{software_groups.join(" ")}"),
     sys("sudo dnf install -y #{packages.join(" ")}"),
     *remote_packages.map { |check, pkg| sys("sudo dnf install -y #{pkg}", !File.exist?(check)) },
     sys('[[ -d /snap ]] || sudo ln -s /var/lib/snapd/snap /snap'),
@@ -72,7 +72,7 @@ end
 def repo_packages
   {
     '/etc/yum.repos.d/rpmfusion-free.repo' => "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-#{`rpm -E %fedora`.chomp}.noarch.rpm",
-    '/etc/yum.repos.d/rpmfusion-nonfree.repo' => "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-#{`rpm -E %fedora`.chomp}.noarch.rpm",
+    '/etc/yum.repos.d/rpmfusion-nonfree.repo' => "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-#{`rpm -E %fedora`.chomp}.noarch.rpm",
   }
 end
 
