@@ -13,6 +13,7 @@ def packages
     zsh
     xclip
     gnupg2
+    pcsc-lite-ccid
     java-11-openjdk
     pinentry-gnome3
     bzip2
