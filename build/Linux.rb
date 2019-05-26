@@ -42,6 +42,8 @@ def packages
     VirtualBox
     VirtualBox-devel
     openssl-compat10
+    lightdm
+    elementary-greeter
   ]
 end
 
@@ -62,7 +64,9 @@ def commands
     sys("sudo dnf install -y #{packages.join(" ")}"),
     *remote_packages.map { |check, pkg| sys("sudo dnf install -y #{pkg}", !File.exist?(check)) },
     sys('[[ -d /snap ]] || sudo ln -s /var/lib/snapd/snap /snap'),
-    *snaps.map { |snap| sys("sudo snap install #{snap}") }
+    *snaps.map { |snap| sys("sudo snap install #{snap}") },
+    sys('sudo systemctl enable lightdm'),
+    sys('sudo systemctl disable gdm')
   ].compact
 end
 
