@@ -43,6 +43,7 @@ def packages
     VirtualBox-devel
     lightdm
     elementary-greeter
+    light-locker
     compat-openssl10
     vim
   ]
