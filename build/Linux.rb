@@ -41,9 +41,10 @@ def packages
     zlib-devel
     VirtualBox
     VirtualBox-devel
-    openssl-compat10
     lightdm
     elementary-greeter
+    compat-openssl10
+    vim
   ]
 end
 
@@ -90,7 +91,8 @@ end
 
 def remote_packages
   {
-    '/opt/chef-workstation' => 'https://packages.chef.io/files/stable/chef-workstation/0.2.53/el/7/chef-workstation-0.2.53-1.el6.x86_64.rpm'
+    '/opt/chef-workstation' => 'https://packages.chef.io/files/stable/chef-workstation/0.2.53/el/7/chef-workstation-0.2.53-1.el6.x86_64.rpm',
+    '/opt/vagrant' => 'https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.rpm'
   }
 end
 
@@ -111,4 +113,3 @@ def sys(cmd, toggle = true)
 end
 
 abort("failed to run all commands") unless commands.all? { |cmd| cmd.call }
-
