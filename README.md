@@ -36,3 +36,9 @@ and adding the following line:
 session    include     postlogin
 
 ```
+
+## Deliberately manual steps
+
+### macos
+
+* Enable coredns: `sudo brew services start coredns`

@@ -1,0 +1,24 @@
+dns://.:53 {
+  bind 127.0.0.1 ::1
+  reload
+
+  template IN A test {
+    answer "{{ .Name }} 60 IN A 127.0.0.1"
+    fallthrough
+  }
+
+  template IN AAAA test {
+    answer "{{ .Name }} 60 IN AAAA ::1"
+    fallthrough
+  }
+
+  hosts {
+    fallthrough
+  }
+  proxy . 8.8.8.8:53 8.8.4.4:53 {
+    protocol https_google
+  }
+
+  cache
+  errors
+}
