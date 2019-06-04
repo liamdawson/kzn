@@ -12,9 +12,6 @@ plugins = {
   '$(pyenv root)/plugins' => {
     'pyenv-implicit' => 'https://github.com/concordusapps/pyenv-implict.git',
     'pyenv-default-packages' => 'https://github.com/jawshooah/pyenv-default-packages.git'
-  },
-  '$(rbenv root)/plugins' => {
-    'rbenv-chef-workstation' => 'https://github.com/docwhat/rbenv-chef-workstation.git'
   }
 }
 
@@ -22,7 +19,7 @@ if installs.all?(&:call)
   system('rbenv global 2.6.2')
   system('pyenv global 3.7.3')
   system('nodenv global 10.15.3')
-  system('goenv global 1.11.4')
+  system('goenv global 1.12.5')
   system('rustup default stable')
 
   plugins.each_key do |plugin_dir|
@@ -31,7 +28,7 @@ if installs.all?(&:call)
     plugins[plugin_dir].each do |name, remote|
       dest = File.join(plugin_dir, name)
 
-      unless Dir.exist?(dest)
+      unless system("[[ -d \"#{dest}\" ]]")
         system("bash -c 'git clone \"#{remote}\" \"#{dest}\"'")
       end
     end

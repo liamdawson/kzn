@@ -5,3 +5,5 @@ mdless
 solargraph
 sinatra
 ejson
+foreman
+rspec

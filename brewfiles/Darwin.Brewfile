@@ -9,9 +9,6 @@ cask 'quicklook-json'
 
 brew 'ykman'
 
-tap 'coredns/deployment', 'https://github.com/coredns/deployment'
-brew 'coredns/deployment/coredns'
-
 cask 'kitty'
 cask 'firefox'
 cask 'visual-studio-code'

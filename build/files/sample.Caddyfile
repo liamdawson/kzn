@@ -1,0 +1,9 @@
+http://* {
+    redir https://{hostonly}{uri}
+}
+
+https://example.test {
+    tls self_signed
+
+    proxy / localhost:8080
+}

@@ -92,7 +92,6 @@ end
 
 def remote_packages
   {
-    '/opt/chef-workstation' => 'https://packages.chef.io/files/stable/chef-workstation/0.2.53/el/7/chef-workstation-0.2.53-1.el6.x86_64.rpm',
     '/opt/vagrant' => 'https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_x86_64.rpm'
   }
 end

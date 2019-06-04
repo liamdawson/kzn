@@ -15,8 +15,10 @@ dns://.:53 {
   hosts {
     fallthrough
   }
-  proxy . 8.8.8.8:53 8.8.4.4:53 {
-    protocol https_google
+
+  forward . tls://1.1.1.1 tls://1.0.0.1 {
+    tls_servername cloudflare-dns.com
+    health_check 5s
   }
 
   cache
