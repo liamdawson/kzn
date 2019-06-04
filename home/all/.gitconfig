@@ -31,3 +31,4 @@
 [alias]
 	hard-master = "reset --hard origin/master"
 	squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1?Please enter a commit message}\");};f"
+	push-to = "!f(){ if [[ $# -ne 1 ]] && [[ $# -ne 2 ]]; then echo 'usage: [remote] <dest-branch>'; exit 1; fi; if [[ $# -eq 2 ]];then branch="$2";remote="$1";else remote="origin";branch="$1";fi;git push "$remote" "$(git rev-parse --abbrev-ref HEAD):${branch}";};f"
