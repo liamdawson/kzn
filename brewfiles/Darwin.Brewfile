@@ -9,6 +9,8 @@ cask 'quicklook-json'
 
 brew 'ykman'
 
+brew 'dnsmasq'
+
 cask 'kitty'
 cask 'firefox'
 cask 'visual-studio-code'
@@ -16,7 +18,6 @@ cask 'alfred'
 cask 'vagrant-manager'
 
 cask 'aws-vault'
-cask 'minikube'
 cask 'vagrant'
 
 mas 'Microsoft OneNote', id: 784801555
