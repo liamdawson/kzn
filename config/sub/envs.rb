@@ -1,10 +1,16 @@
+# frozen_string_literal: true
+
+versions = {
+  rbenv: '2.6.2',
+  pyenv: '3.7.3',
+  nodenv: '10.15.0',
+  goenv: '1.11.4'
+}
+
 installs = [
-  -> { system('rbenv install -s 2.6.2') },
-  -> { system('pyenv install -s 3.7.3') },
+  *versions.map { |k, v| -> { system("#{k} install -s #{v}") } },
   -> { system('pyenv install -s 2.7.15') },
-  -> { system('nodenv install -s 10.15.0') },
   -> { system('nodenv install -s 11.6.0') },
-  -> { system('goenv install -s 1.11.4') },
   -> { system('rustup update') }
 ]
 
@@ -16,10 +22,7 @@ plugins = {
 }
 
 if installs.all?(&:call)
-  system('rbenv global 2.6.2')
-  system('pyenv global 3.7.3')
-  system('nodenv global 10.15.3')
-  system('goenv global 1.12.5')
+  versions.each { |k, v| system("#{k} global #{v}") }
   system('rustup default stable')
 
   plugins.each_key do |plugin_dir|
