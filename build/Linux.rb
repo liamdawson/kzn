@@ -41,9 +41,6 @@ def packages
     zlib-devel
     VirtualBox
     VirtualBox-devel
-    lightdm
-    elementary-greeter
-    light-locker
     compat-openssl10
     vim
   ]
