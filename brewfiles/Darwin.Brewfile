@@ -16,7 +16,7 @@ cask 'firefox'
 cask 'visual-studio-code'
 cask 'alfred'
 cask 'vagrant-manager'
-case 'stretchly'
+cask 'stretchly'
 
 cask 'aws-vault'
 cask 'vagrant'
