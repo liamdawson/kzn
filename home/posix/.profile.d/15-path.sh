@@ -2,7 +2,7 @@
 
 if [ -d "${HOME}/.local/bin" ]
 then
-  export PATH="${PATH}:${HOME}/.local/bin"
+  export PATH="${HOME}/.local/bin:${PATH}"
 fi
 
 if [ -d "${HOME}/.cargo/bin" ]

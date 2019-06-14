@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+paths="/usr/local/bin/tmux /usr/bin/tmux /home/linuxbrew/.linuxbrew/bin/tmux"
+
+unset cfg
+test "$(uname)" = "Darwin" && cfg=$HOME/.tmux-osx.conf
+
+for path in $paths; do
+  [ -x "$path" ] && exec "$path" ${cfg+-f "$cfg"} "$@"
+done

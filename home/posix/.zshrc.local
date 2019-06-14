@@ -4,3 +4,14 @@ export LANG=en_US.UTF-8
 setopt transientrprompt
 
 [[ -r "${ZDOTDIR:-${HOME}}/.zshrc.machine" ]] && source "${ZDOTDIR:-${HOME}}/.zshrc.machine"
+
+if test -d "${HOME}/.profile.d"
+then
+  for i in "${HOME}"/.profile.d/*.sh
+  do
+    if test -r "$i"
+    then
+        . "$i"
+    fi
+  done
+fi

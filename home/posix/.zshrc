@@ -63,7 +63,13 @@ ZSH_CUSTOM="${XDG_CONFIG_DIR:-${HOME}/.config}/zsh-custom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=()
+plugins=(
+  colored-man-pages
+  cp
+  web-search
+  gas
+  gitignore
+)
 
 source $ZSH/oh-my-zsh.sh
 
