@@ -16,6 +16,6 @@ zplug "themes/frisk", from:oh-my-zsh, as:theme
 #   gitignore
 # )
 
-zplug load --verbose
+zplug load
 
 source "${HOME}/.zshrc.local"
