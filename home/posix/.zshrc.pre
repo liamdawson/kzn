@@ -1,3 +1,2 @@
 MAILCHECK=0
-
-
+ZPLUG_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/zplug"

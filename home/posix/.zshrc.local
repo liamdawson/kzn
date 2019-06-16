@@ -1,9 +1,7 @@
 export LANG=en_US.UTF-8
 
-# zstyle ':vcs_info:*' enable NONE
+zstyle ':vcs_info:*' enable NONE
 setopt transientrprompt
-
-[[ -r "${ZDOTDIR:-${HOME}}/.zshrc.machine" ]] && source "${ZDOTDIR:-${HOME}}/.zshrc.machine"
 
 if test -d "${HOME}/.profile.d"
 then
@@ -15,3 +13,5 @@ then
     fi
   done
 fi
+
+[[ -r "${ZDOTDIR:-${HOME}}/.zshrc.machine" ]] && source "${ZDOTDIR:-${HOME}}/.zshrc.machine"
